@@ -1,27 +1,28 @@
 ## Store a matrix and cache its inverse in a single object.
 
 ## All functions, even single-line ones, are defined using "{ }" for 
-## structure nad clarity
+## structure and clarity
 
-## set: define matrix, reinitialize the inverse to NULL
-## get: return the value of the matrix
-## setInv: store the inverse (actually no inverse computation takes place here)
-## getInv: return the stored value of the inverse
 
-# Test by calling "x<-makeCacheMatrix(matrix(rnorm(25),5,5))" and then "x$get()"
+# Function can be tested by calling "x<-makeCacheMatrix(matrix(rnorm(25),5,5))"
+# and then "x$get()"
 
 makeCacheMatrix <- function(x = matrix()) {
      xInv<-NULL
+     ## set: define matrix, reinitialize the inverse to NULL
      set<-function(y) {
           x <<- y
           xInv <<- NULL
      }
+     ## get: return the value of the matrix
      get <- function() {
           x
      }
+     ## setInv: store the inverse (actually no inverse computation takes place here)
      setInv <- function(inverse) {
           xInv <<- inverse
      } 
+     ## getInv: return the stored value of the inverse
      getInv <- function() {
           xInv
      }
